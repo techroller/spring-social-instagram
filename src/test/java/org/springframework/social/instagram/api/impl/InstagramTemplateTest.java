@@ -2,6 +2,10 @@ package org.springframework.social.instagram.api.impl;
 
 import static org.springframework.http.HttpMethod.GET;
 
+import static org.springframework.social.test.client.RequestMatchers.method;
+import static org.springframework.social.test.client.RequestMatchers.requestTo;
+import static org.springframework.social.test.client.ResponseCreators.withResponse;
+
 import org.junit.Test;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.social.MissingAuthorizationException;

@@ -111,10 +111,11 @@ public class UserTemplateTest extends AbstractInstagramApiTest {
 	
 	@Test
 	public void followUser() {
+		ClassPathResource resource = new ClassPathResource("testdata/media-list.json", getClass());
 		mockServer.expect(requestTo("https://api.instagram.com/v1/users/12345/relationship/?access_token=ACCESS_TOKEN"))
 			.andExpect(method(POST))
 			.andExpect(body("action=follow"))
-			.andRespond(withResponse(new ClassPathResource("testdata/media-list.json", getClass()), responseHeaders));
+			.andRespond(withResponse(resource, responseHeaders));
 		
 		instagram.userOperations().followUser(12345);
 		mockServer.verify();
